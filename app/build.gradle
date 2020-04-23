@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.heapanalytics.android'
 
 android {
     compileSdkVersion 29
@@ -14,6 +15,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ext {
+            heapEnabled = true
+            heapAutoInit = true
+            heapEnvId = "123"
+        }
     }
 
     buildTypes {
@@ -34,4 +41,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation "com.heapanalytics.android:heap-android-client:${heap_version}"
 }
